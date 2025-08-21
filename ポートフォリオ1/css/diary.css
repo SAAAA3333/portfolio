@@ -1,0 +1,13 @@
+/* DIARY PC共通スタイル設定 */
+#diary-body {
+    height: 90%;
+    width: 90%;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.95);
+}
+

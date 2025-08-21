@@ -1,0 +1,138 @@
+/*================
+GALLERY PC用スタイル
+=================*/
+@media screen and (min-width: 768px) {
+
+#gallery-body {
+    height: 90%;
+    width: 90%;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.95);
+}
+
+/* タイトル */
+.gallery-title {
+    width: 100%;
+    margin: 0;
+    font-size: 4vw;
+    font-weight: 400;
+    color: #272727;
+    white-space: nowrap;
+    animation: loop_animation 9s linear infinite;
+}
+
+/* ループエリア */
+.loop_area {
+    width: 100%;
+    display: flex;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    overflow: hidden;
+}
+/* ループアニメーション */
+@keyframes loop_animation {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+#illust-board {
+    width: 90%;
+    margin-left: 10%;
+    margin-top: 10%;
+    display: flex;
+    opacity: 1;
+    animation: gallery-fadein 1.5s ease;
+    z-index: 10;
+}
+
+@keyframes gallery-fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+
+}
+
+/* フィルムコマをグリッド管理 */
+.film-3fr {
+    margin-bottom: 3%;
+    display: grid;
+    gap: 0;
+    justify-self: center;
+    align-self: center;
+}
+
+/* 画像No. */
+.film-3fr > h2 {
+    padding: 0;
+    margin: 5px;   
+}
+
+/* フィルムコマ設定 */
+.film {
+    height: 17vh;
+    width: auto;
+    aspect-ratio: 1280 / 905;
+    opacity: 0.5;
+    justify-self: center;
+    align-self: center;
+}
+
+/* 画像トリミング */
+.film-img-msk {
+    height: 12vh;
+    width: 23vh;
+    justify-self: center;
+    align-self: center;
+}
+
+/* 画像 */
+.film-img {
+    height: 100%;
+    width: 100%;
+    opacity: 0.5;
+    justify-self: center;
+    align-self: center;
+    object-fit: cover;
+}
+
+/* フレームと画像を同じ座標に設定 */
+.film-3fr img:nth-child(4) {
+    grid-area: 2 / 1;
+}
+.film-3fr img:nth-child(5) {
+    grid-area: 2 / 2;
+}
+.film-3fr img:nth-child(6) {
+    grid-area: 2 / 3;
+}
+.film-3fr div:nth-child(7) {
+    grid-area: 2 / 1;
+}
+.film-3fr div:nth-child(8) {
+    grid-area: 2 / 2;
+}
+.film-3fr div:nth-child(9) {
+    grid-area: 2 / 3;
+}
+
+/* 画像テキスト */
+.film-3fr > p {
+    padding: 0;
+    margin: 7px;
+    font-size: 14px;
+}
+
+}

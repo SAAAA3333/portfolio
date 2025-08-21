@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+    <link rel="stylesheet" href="css/home.css">
+</head>
+
+<body>
+    <!-- ノイズエフェクト -->
+    <div id="glitch-noise"></div>
+    <!-- パスワード入力アニメーション -->
+    <div id="loading-first">
+        password
+        <div class="password-form">
+            <div class="password-typing">
+                ＊＊＊＊＊＊＊＊＊＊
+            </div>
+        </div>
+    </div>
+    <!-- 認証アニメーション -->
+    <div id="loading-second">
+        WELCOME
+    </div>
+
+    <div id="side-menu-fv">
+        <!-- サイドメニュー -->
+        <div class="side-menu">
+            <div class="menu-contents">
+                <a href="">
+                    <div class="hover-animation">
+                        <div class="menu-content"><span></span>ABOUT ME</div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="hover-animation">
+                        <div class="menu-content"><span></span>GALLERY</div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="hover-animation">
+                        <div class="menu-content"><span></span>GOODS</div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="hover-animation">
+                        <div class="menu-content"><span></span>DIARY</div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="hover-animation">
+                        <div class="menu-content-last"><span></span>CONTACT</div>
+                    </div>
+                </a>
+            </div>
+            <!-- 注意書き -->
+            <p>
+            Unauthorized copying and replication of the contents of<br>
+            this site, text and images are strictly prohibited.<br>
+            （当サイトのテキスト・画像の無断転載<br>
+            複製を固く禁じます。）
+            </p>
+        </div>
+
+        <div class="image-box">
+            <!-- TOP画像ノイズエフェクト -->
+            <div id="noise-effect"></div>
+            <!-- クリック時オーバーレイ閉じるボタン -->
+            <button class="overlay-close">×close</button>
+            <!-- クリック時オーバーレイ -->
+            <div class="overlay-content"></div>
+            <!-- メニュー選択時オーバーレイ -->
+            <div class="overlay-filter"></div>
+            <div class="overlay-text"><span>SA</span><br>作者について</div>
+            <!-- TOP画像 -->
+            <img src="images/20190501b.png" alt="TOP画像">
+        </div>
+    </div>
+
+    <!-- Javascriptインポート -->
+    <script src="js/glitch_line.js"></script>
+    <script src="js/content_menu_overlay.js"></script>
+</body>
+</html>

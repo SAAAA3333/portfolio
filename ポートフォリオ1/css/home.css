@@ -1,0 +1,441 @@
+/*================
+ PC用スタイル
+=================*/
+@media screen and (min-width: 768px) {
+
+/* 共通 */
+html, body {
+    height: 98vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    /* 背景色 */
+    background-color: black;
+    /* フォント */
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: #656464;
+}
+
+/* リンク */
+a:link, a:visited {
+    color: #656464;
+    text-decoration: none;
+}
+
+/* ページ遷移後アニメーション ------------------------*/
+
+/* パスワード入力画面 */
+#loading-first {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;   
+    /* フォント設定 */
+    font-size: 32px;
+    letter-spacing: 0.1em;
+    /* フェードアウト */
+    animation: fadeout 2s ease-out forwards;
+}
+
+/* 入力窓 */
+.password-form {
+    margin: 1%;
+    width: 13em;
+    padding: 3px 5px;
+    border-top: 1px solid #282828;
+    border-left: 1px solid #282828;
+    border-bottom: 1px solid #555;
+    border-right: 1px solid #555;
+    background: rgba(51, 51, 51, 0.6);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* 入力内容 */
+.password-typing {
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    /* タイピングアニメーション */
+    width: 18ch; /* 文字数 */
+    /* 文字表示秒数、表示回数、カーソル点滅秒数を指定 */
+    animation: typing-pass 1.5s steps(18), effect .5s step-end infinite alternate;
+}
+
+/* タイピングアニメーション */
+@keyframes typing-pass {
+    0% {
+        width: 0;
+    }
+    20% {
+        width: 0;
+    }
+}
+    
+@keyframes effect {
+    50% {
+        border-color: transparent
+    }
+}
+
+/* フェードアウト */
+@keyframes fadeout {
+    95% {
+        opacity: 0.9;
+    }
+    99%, 100% {
+        opacity: 0;
+    }
+}
+
+/* 認証画面 */
+#loading-second {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    opacity: 0; 
+    /* フォント設定 */
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 48px;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.5);
+    /* ネオン */
+    text-shadow:
+    0 0 7px rgba(255, 255, 255, 0.3),
+    0 0 10px rgba(255, 255, 255, 0.5),
+    0 0 21px rgba(255, 255, 255, 0.5),
+    0 0 42px rgb(255, 0, 0),
+    0 0 82px rgb(255, 0, 0),
+    0 0 92px rgb(255, 0, 0),
+    0 0 102px rgb(255, 0, 0),
+    0 0 151px rgb(255, 0, 0);
+    /* フェードイン・アウト */
+    animation: fadein-out 3.5s;
+}
+
+/* フェードイン・アウト */
+@keyframes fadein-out {
+    60% {
+        opacity: 0;
+    }
+    70%, 80%, 99% {
+        opacity: 0.9;
+    }
+    75%, 100% {
+        opacity: 0;
+    }
+}
+
+/* ページ遷移後アニメーションここまで ------------------------*/
+
+/* ノイズエフェクト */
+#glitch-noise {
+    position: fixed;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../images/noise.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transition: opacity 0.3s ease;
+}
+
+/* メインコンテンツ ------------------------*/
+/* サイドメニュー+TOP画像 */
+#side-menu-fv {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    animation: slideIn 4s ease-out forwards; 
+}
+
+/* スライドアニメーション */
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100vw);
+    }
+    85% {
+        transform: translateX(-100vw);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* サイドメニュー ------------------------*/
+.side-menu {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    height: 100%;
+    font-size: clamp(24px, 2.7vw, 32px);
+    margin-top: 5%;
+    text-align: center;
+}
+
+.menu-contents {
+    width: 100%;
+    padding-top: 10%;
+}
+
+/* メニュー余白と下線 */
+.menu-content {
+    width: 100%;
+    margin: 4% 0;
+    padding: 3% 0;
+    border-bottom: solid 1px #2a2a2a;
+}
+
+.menu-content-last {
+    padding: 3% 0;    
+}
+
+/* +アイコン */
+.menu-content > span::before, .menu-content-last > span::before {
+    content: "+";
+    color: rgb(68, 68, 68);
+    margin-right: 1em;
+    padding: 0 0.2em;
+    display: inline-block;
+    transition: 2s ease;
+}
+
+/* 注意書き */
+.side-menu > p {
+    margin: auto auto 40% auto;
+    align-self: flex-end;
+    font-size: 0.7vw;
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* ホバーアニメーション */
+.hover-animation {
+    width: 100%;
+    background-image: linear-gradient(to right, rgba(0,0,0,0) 50%, rgba(105,29,29,0.9) 50%);
+    background-position: 0 0;
+    background-size: 200% auto;
+    transition: 0.5s ease;
+    box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+.hover-animation:hover {
+    background-position: -100% 0;
+    color: rgba(0,0,0,0.8);
+    font-weight: bold;
+    letter-spacing: 0.15em;
+    transition: 0.5s ease;
+}
+
+/* サイドメニューここまで ------------------------*/
+
+/* TOP画像 */
+.image-box {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -7px;
+}
+
+.image-box > img {
+    aspect-ratio: 1100 / 1300;
+    width: auto;
+    height: 100%;
+    overflow: hidden; 
+    /* 楕円マスク */
+    mask-image:
+        radial-gradient(
+            farthest-side,
+            rgb(255, 255, 255) 0% 50%,
+            rgba(255, 255, 255, 0) 80% 100%
+            );
+}
+
+/* ノイズエフェクト */
+#noise-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 10vh;
+    background: rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(20, 20, 20, 0.2));
+    transition: opacity 300ms;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.25;
+    animation: glitch 500ms infinite;
+    animation: scan 0.3s infinite;
+}
+
+@keyframes glitch {
+    0% {
+        transform: skewX(0deg);
+    }
+    5% {
+        transform: skewX(2deg);
+        opacity: 0.75;
+    }
+    10% {
+        transform: skewX(0deg);
+        opacity: 1;
+    }
+    15% {
+        transform: skewX(-5deg);
+        opacity: 0.75;
+    }
+    20% {
+        transform: skewX(0deg);
+        opacity: 1;
+    }
+    45% {
+        transform: skewX(3deg);
+        opacity: 0.75;
+    }
+    50% {
+        transform: skewX(0deg);
+        opacity: 1;
+    }
+    55% {
+        transform: skewX(0deg);
+        opacity: 0.75;
+    }
+    60% {
+        transform: skewX(0deg);
+        opacity: 1;
+    }
+    75% {
+        transform: skewX(2deg);
+    }
+    80% {
+        transform: skewX(0deg);
+    }
+    85% {
+        transform: skewX(-8deg);
+        opacity: 0.75;
+    }
+    90% {
+        transform: skewX(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: skewX(0deg);
+    }
+}
+@keyframes scan {
+    0% {
+        top: 0%;
+    }
+    50% {
+        top: 97%;
+    }
+    100% {
+        top: 0%;
+    }
+}
+
+
+/* メニュー選択時オーバーレイ ------------------------*/
+
+/* 画像ぼかしフィルター */
+.overlay-filter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+
+    border-radius: 16px;
+    background: rgba(0,0,0,0.2);
+    backdrop-filter: blur(8px) grayscale(50%);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* フィルター上テキスト（テキスト内容はjs定義） */
+.overlay-text {
+    /* フォント設定 */
+    position: absolute;
+    z-index: 20;
+    color: transparent;
+    text-shadow: 0 0 2px rgba(255,255,255,0.4);
+    align-self: center;
+    text-align: center;
+    font-size: 32px;
+    /* スピンアニメーション */
+    transition: transform 0.5s ease;
+}
+
+/* スピンアニメーション */
+.overlay-text.rotate {
+    transform: rotateY(360deg);
+}
+
+/* 見出しフォント設定 */
+.overlay-text > span {
+    font-size: 64px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* メニュー選択時オーバーレイここまで ------------------------*/
+
+/* クリック時オーバーレイ */
+.overlay-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    padding: 20px;
+    z-index: 30;
+    background: rgb(0, 0, 0);
+    overflow-y: auto;
+    opacity: 0;
+    /* 読み込みページのレイアウト */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 閉じるボタン */
+.overlay-close {
+    position: fixed;
+    top: 7%;
+    right: 5%;
+    padding: 10px;
+    color: transparent;
+    text-shadow: 0 0 2px rgba(255,255,255,0.8);
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    font-size: 32px;
+    font-family: "Playfair Display", serif;
+    font-weight: 100;
+    cursor: pointer;
+    text-align: center;
+    z-index: 40;
+    opacity: 0;
+}
+
+}
