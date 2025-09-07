@@ -1,0 +1,149 @@
+/*================
+ CONTACT PC用スタイル
+=================*/
+@media screen and (min-width: 768px) {
+
+#contact-body {
+    height: 90%;
+    width: 90%;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+}
+
+#contact-contents {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 10%;
+}
+
+/* ページタイトル */
+#contact-title {
+    display: flex;
+    align-items: center;
+}
+
+.contact-h1 {
+    margin: 0;
+    margin-left: 5vw;
+    font-size: 80px;
+    font-weight: 400;
+    color: #272727;
+
+    background-image: linear-gradient(
+        70deg,
+        rgba(100, 100, 100, 0.3)  45%, 
+        #868585 50%,
+        rgb(100, 100, 100, 0.3) 55% 
+    );
+    background-size: 250% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 4s infinite;
+}
+
+/* フォント発光アニメーション */
+@keyframes shine {
+    0% {
+        background-position: 100% 50%;
+    }
+    99% {
+        background-position: 0% 50%;
+    }
+}
+
+/* 流線アニメーション */
+.line {
+    position: absolute;
+    left: 0;
+    height: 5px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.line::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -50%;
+    width: 45vh;
+    height: 100%;
+    opacity: 0.3;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #868585 75%, #868585 100%);
+    animation: drop 4s ease infinite;
+    z-index: 100;
+}
+
+@keyframes drop {
+    0% {
+        left: -50%;
+    }
+    100% {
+        left: 110%;
+    }
+}
+
+/* 連絡先一覧 */
+#contacts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10%;
+    list-style-type: none;
+    text-align: center;
+}
+
+/* サイト名 */
+#contact-h2 {
+    font-size: 24px;
+    color: #4b4a4a;
+    text-align: center;
+    border-bottom: solid 1px #2a2a2a;
+}
+
+/* 1コンテンツ幅 */
+.contact-site {
+    width: 200px;
+}
+
+/* アドレス */
+.contact-site > p {
+    font-size: 18px;
+}
+
+/* 注釈 */
+.contact-site > p > span {
+    font-size: 0.7vw;
+}
+
+/* 画像 */
+.contact-icon {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.contact-icon > img {
+    aspect-ratio: 1 / 1;
+    width: 50%;
+    height: auto;
+    opacity: 0.3;
+}
+
+/* メモ */
+#contact-memo {
+    margin-left: 90px;
+    margin-top: 5%;
+    font-size: clamp(17px, 1.4vw, 10px);
+}
+
+}

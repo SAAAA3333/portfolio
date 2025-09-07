@@ -1,0 +1,327 @@
+/*================
+GALLERY PC用スタイル
+=================*/
+@media screen and (min-width: 768px) {
+    
+body {
+    height: 98vh;
+    width: 80vw;
+    margin: 0 15%;
+    padding: 0;
+
+    /* フォント */
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: #656464;
+
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.95);
+    opacity: 1;
+    animation: fadein 1s ease;
+}
+
+/* リンク */
+a:link, a:visited {
+    color: #656464;
+    text-decoration: none;
+}
+
+
+/* タイトル */
+.gallery-title {
+    margin-left: -6%;
+    margin-bottom: 2%;
+
+    /* フォント設定 */
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 2.9vw;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.5);
+    /* ネオン */
+    text-shadow:
+    0 0 7px rgba(255, 255, 255, 0.3),
+    0 0 10px rgba(255, 255, 255, 0.5),
+    0 0 21px rgba(255, 255, 255, 0.5),
+    0 0 42px rgb(255, 0, 0),
+    0 0 82px rgb(255, 0, 0),
+    0 0 92px rgb(255, 0, 0),
+    0 0 102px rgb(255, 0, 0),
+    0 0 151px rgb(255, 0, 0);
+}
+
+#illust-board-box {
+    width: 90%;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: start;    
+}
+
+/* スクロールボタン */
+#scroll-button-text {
+    position: absolute;
+    left: -0.7%;
+    color: rgba(255, 255, 255, 0.2);
+    z-index: 150;
+    margin-top: 4.5vh;
+    font-size: 1vw;
+    line-height: 1em;
+    text-align: center;
+    pointer-events: none;
+}
+
+#scroll-left {
+    position: absolute;
+    left: -10%;
+    background-color: transparent;
+    border: none;
+    z-index: 100;
+}
+
+#scroll-left > img {
+    width: 16vw;
+    cursor: pointer;
+}
+
+#top-link {
+    position: fixed;
+    bottom: 25vh;
+    left: 12.5vw;
+    opacity: 0.8;
+    font-size: 0.9vw;
+}
+
+/* ライン */
+#start-line {
+    height: 20vh;
+    width: 5px;
+    position: absolute;
+    left: 10vw;
+    background-color: rgba(31, 30, 30, 0.9);
+    z-index: 100;
+}
+
+/* 映写機ライト */
+#lite-effect {
+    position: absolute;
+    margin-top: 12%;
+    margin-left: 5%;
+    height: 80%;
+    width: 40%;
+    z-index: 50;
+    opacity: 0.3;
+    pointer-events: none;
+    background-image:
+    conic-gradient(from 92deg at 0% 50%, rgba(243, 246, 242, 1) 0deg, rgba(0, 0, 0, 0) 13deg 332deg, rgba(255, 255, 255, 1) 360deg);
+}
+
+
+/* スクロールするフレーム一覧 */
+#illust-board {
+    margin-left: 10vw;
+    display: flex;
+    z-index: 10;
+
+    overflow: scroll;
+    cursor: pointer;
+    -ms-overflow-style: none;  /* IE/Edge スクロールバー非表示 */
+    scrollbar-width: none;     /* Firefox スクロールバー非表示 */
+
+        /* 楕円マスク */
+    mask-image:
+    linear-gradient(80deg, rgba(0, 0, 0, 1), rgba(233, 233, 233, 0) 50%);
+        /* 楕円マスク */
+}
+
+#illust-board::-webkit-scrollbar {
+    display: none; /* Chrome, Safari スクロールバー非表示 */
+}
+
+/* 1フレーム（テキスト+画像） */
+.film-box {
+    display: grid;
+    gap: 0;
+    align-content: center;
+}
+
+/* 枠と画像を同じ座標に設定 */
+.film-box img:nth-child(2) {
+    grid-area: 2 / 1;
+}
+.film-box div:nth-child(3) {
+    grid-area: 2 / 1;
+}
+
+/* 画像No. */
+.film-box > h2 {
+    padding: 0;
+    margin: 0;
+    margin-left: 7px;
+}
+
+/* フィルムコマ設定 */
+.film {
+    height: 20vh;
+    width: auto;
+    aspect-ratio: 1280 / 905;
+    opacity: 0.5;
+    justify-self: center;
+    align-self: center;
+}
+
+/* 画像トリミング */
+.film-img-msk {
+    height: 14vh;
+    width: auto;
+    justify-self: center;
+    align-self: center;
+}
+
+/* 画像 */
+.film-img {
+    height: 100%;
+    width: 100%;
+    opacity: 0.9;
+    justify-self: center;
+    align-self: center;
+    object-fit: cover;
+}
+
+
+/* 画像テキスト */
+.film-box > p {
+    padding: 0;
+    margin: 0;
+    margin-left: 7px;
+    font-size: 14px;
+}
+
+/* 拡大画像オーバーレイ */
+#enlarge-image {
+    height: 60%;
+    width: auto;
+    position: absolute;
+    left: 45%;
+    display: flex;
+    justify-content: right;
+    opacity: 0.5;
+    z-index: 50;
+}
+
+#enlarge-image > img {
+    height: 100%;
+    width: auto;
+    opacity: 1;
+    animation: fadein 0.5s ease;
+
+    /* 楕円マスク */
+    mask-image:
+        radial-gradient(
+            closest-corner,
+            rgb(255, 255, 255) 0% 30%,
+            rgba(255, 255, 255, 0) 95% 100%
+            );
+}
+
+/* フェードイン */
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+
+}
+
+
+
+/* チラつきノイズエフェクト */
+#noise-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10vh;
+    background: rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(20, 20, 20, 0.2));
+    transition: opacity 200ms;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.15;
+    animation: glitch 500ms infinite;
+    animation: scan 0.2s infinite;
+}
+
+@keyframes glitch {
+    0% {
+        transform: skewX(0deg);
+    }
+    5% {
+        transform: skewX(2deg);
+        opacity: 0.75;
+    }
+    10% {
+        transform: skewX(0deg);
+        opacity: 1;
+    }
+    15% {
+        transform: skewX(-5deg);
+        opacity: 0.75;
+    }
+    20% {
+        transform: skewX(0deg);
+        opacity: 1;
+    }
+    45% {
+        transform: skewX(3deg);
+        opacity: 0.75;
+    }
+    50% {
+        transform: skewX(0deg);
+        opacity: 1;
+    }
+    55% {
+        transform: skewX(0deg);
+        opacity: 0.75;
+    }
+    60% {
+        transform: skewX(0deg);
+        opacity: 1;
+    }
+    75% {
+        transform: skewX(2deg);
+    }
+    80% {
+        transform: skewX(0deg);
+    }
+    85% {
+        transform: skewX(-8deg);
+        opacity: 0.75;
+    }
+    90% {
+        transform: skewX(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: skewX(0deg);
+    }
+}
+@keyframes scan {
+    0% {
+        top: 0%;
+    }
+    50% {
+        top: 90%;
+    }
+    100% {
+        top: 0%;
+    }
+}
+}
