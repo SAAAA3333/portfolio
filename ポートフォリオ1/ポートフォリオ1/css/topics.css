@@ -1,0 +1,121 @@
+/*================
+ PC用スタイル
+=================*/
+@media screen and (min-width: 768px) {
+
+#topics-body {
+    height: 90%;
+    width: 90%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.95);
+}
+
+#topics {
+    width: 35vw;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* 最新記事リンク */
+#latest {
+    position: absolute;
+    bottom: 50vh;
+    right: 0;
+    font-size: 1vw;
+    padding: 10px 15px 10px 50px;
+    background-color: rgb(22, 10, 10);
+    transform: rotate(340deg);
+    cursor: pointer;
+}
+
+/* 最古記事リンク */
+#oldest {
+    position: absolute;
+    bottom: 40vh;
+    right: 0;
+    font-size: 1vw;
+    padding: 10px 15px 10px 50px;
+    background-color: rgb(27, 25, 25);
+    transform: rotate(15deg);
+    cursor: pointer;
+}
+
+/* 前後移動カーソル */
+#topics-cursor {
+    display: flex;
+    position: absolute;
+    z-index: 100;
+    opacity: 0.3;
+    font-size: 3vw;
+    color: rgba(255, 255, 255, 0.3);
+}
+#topics-back {
+    margin-left: 14vw;
+    cursor: pointer;
+}
+#topics-next {
+    margin-right: 14vw;
+    cursor: pointer;
+}
+
+/* 記事本文 */
+#article-text {
+    z-index: 100;
+    font-size: 0.9vw;
+    opacity: 0.7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    pointer-events: none;
+}
+
+#article-text > span {
+    font-size: 2vw;
+    font-weight: bold;
+    color: rgb(70, 16, 16);
+    margin-bottom: 2vh;
+}
+
+/* ページ画像 */
+#background-img {
+    position: absolute;
+    width: 25vw;
+    z-index: 10;
+}
+#background-img2 {
+    position: absolute;
+    width: 25vw;
+    z-index: 0;
+}
+
+/* ページスライド */
+.page-slide {
+    animation: page-slide 500ms ease;
+}
+
+/* テキストスライド */
+.text-slide {
+    animation: text-slide 500ms ease;
+}
+
+@keyframes page-slide {
+    100% {
+        transform: translateX(-50vw);
+    }
+}
+
+@keyframes text-slide {
+    100% {
+        transform: translateX(-50vw);
+    }
+}
+
+}
